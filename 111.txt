@@ -1,0 +1,1123 @@
+// ==UserScript==
+// @name         User-1.65
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        http://13.229.176.203/admin/index/index.html
+// @match        https://goms.giikin.com/admin/index/index.html
+// @grant        none
+// ==/UserScript==https://13.229.176.203/static/admin/js/tabs.js
+(function() {
+        var alNode = document.createElement('style');
+            alNode .innerHTML =
+                '#msg{'
+        +'width:266px;'
+        +'position: fixed;'
+        +'z-index:999;'
+        +'top: 49%;'
+        +'margin-top:-80px;'
+        +'left:50%;'
+        +'margin-left:-133px;'
+        +'background:#fff;'
+        +'box-shadow:5px 5px 8px #999;'
+        +'font-size:17px;'
+        +'color:#666;'
+        +'border:1px solid #f8f8f8;'
+        +'text-align: center;'
+        +'line-height: 2rem;'
+        +'display:inline-block;'
+        +'padding-bottom:20px;'
+        +'border-radius:2px;'
+    +'}'
+    +'#msg_top{'
+        +'background:#f8f8f8;'
+        +'padding:5px 15px 5px 20px;'
+        +'text-align:left;'
+    +'}'
+    +'#msg_top span{'
+        +'font-size:22px;'
+        +'float:right;'
+        +'cursor:pointer;'
+    +'}'
+    +'#msg_cont{'
+        +'padding:15px 20px 20px;'
+        +'text-align:left;'
+    +'}'
+    +'#msg_clear{'
+        +'display:inline-block;'
+        +'color:#fff;'
+        +'padding:1px 15px;'
+        +'background:#8fc31f;'
+        +'border-radius:2px;'
+        +'float:right;'
+        +'margin-right:15px;'
+        +'cursor:pointer;'
+    +'}';
+       document.querySelector('body').appendChild(alNode);
+
+     var altNode = document.createElement('script');
+         altNode .innerHTML =
+           'function aler(e){'
+       +'var altval = document.createElement("div");'
+           +'altval.setAttribute("id","msg");'
+           +'altval.innerHTML ='
+               + '<div id="msg_top">信息<span class="msg_close">×</span></div>'
+               + '<div id="msg_cont">'
+               + '+ e +</div>'
+               + '<div class="msg_close" id="msg_clear">确定</div>;'
+          +'document.querySelector("body").appendChild(altval);'
+          +'document.getElementByClassName("msg_close").addEventListener("click", function fn() {'//鍵
+            + 'var mmNode = document.getElementsById("msg");'
+                + 'mmNode.remove();'
+            + '},false)'
+         +'}';
+    document.querySelector('body').appendChild(altNode);
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ /* var stNode = document.createElement('script');
+           stNode .innerHTML =
+               'function gb(){\
+             var ttx = document.getElementById("t_question_modal");\
+                 ttx.style.display = "none";\
+                 ttx.hide() }\;'
+       document.querySelector('body').appendChild(stNode);*/
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    var stNode1 = document.createElement('script');
+        stNode1 .src ="https://libs.baidu.com/jquery/1.9.0/jquery.js"
+       document.querySelector('body').appendChild(stNode1);
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    var targNode = document.getElementsByClassName("page-header navbar navbar-fixed-top")[0];
+    var wxzSearchBarNode = document.createElement('div');
+        wxzSearchBarNode.setAttribute('class','header-wxzbar header-info');
+        wxzSearchBarNode.style = "position: absolute;top: 14px; left: 235px;";
+        wxzSearchBarNode.innerHTML =
+      '&nbsp &nbsp <input placeholder=" 輸入--（編號）" class="search-button" id="wxz_input" type="hidden" display:"inline-block"> &nbsp &nbsp &nbsp\
+                   <input type="button" value="&nbsp GO-客服 &nbsp" class="search-button" id="wxcx_searchButton" display:"inline-block">&nbsp\
+                   <input type="button" value="&nbsp GO-客服查詢 &nbsp" class="search-button" id="wxz_searchButton" display:"inline-block">&nbsp\
+                   <input type="button" value="&nbsp GO-查詢 &nbsp" class="search-button" id="cx_search" onclick="loadDoc()" display:"inline-block">&nbsp\
+                   <input type="button" value="&nbsp   -查詢 &nbsp" class="search-button" id="cxcs_search" onclick="csloadDoc()" display:"inline-block">&nbsp\
+                          &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp\
+                   <input type="button" value="&nbsp GO-退 货 &nbsp" class="search-button" id="th_searchButton" display:"inline-block">&nbsp &nbsp\
+                   <input type="button" value="&nbsp Go-换 货 &nbsp" class="search-button" id="hh_searchButton" display:"inline-block">&nbsp &nbsp\
+                   <input type="button" value="&nbsp Go-补 发 &nbsp" class="search-button" id="bf_searchButton" display:"inline-block">&nbsp &nbsp\
+                   <input type="button" value="&nbsp Go-一鍵複製 &nbsp" class="fz-button" id="fz_searchButton" display:"inline-block">&nbsp &nbsp\
+<input type="button" value="&nbsp Go-一鍵 &nbsp" class="fz-button" id="ffz_searchButton" display:"inline-block">&nbsp &nbsp\
+<input type="button" value="&nbsp Go-鍵 &nbsp" class="fz-button" id="ffz_searchButton" display:"inline-block">&nbsp &nbsp\;'
+      targNode.appendChild(wxzSearchBarNode);
+    //targNode.insertBefore(wxzSearchBarNode,oldNode);
+
+        var aNode = document.createElement('script');
+            aNode.innerHTML =
+              + 'function alert(a,b){'
+              + 'var a;'
+              + 'var b;'
+              + '<dl id="al">'
+              + '<dt>' + 11+ '</dt>'
+              + '<dd>' + 22 + '</dd>'
+              + '</dl>}';
+       document.querySelector('body').appendChild(aNode);
+
+      document.getElementById("ffz_searchButton").addEventListener("click", function fn() {//一鍵
+            aler("667676");
+     },false)
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    var djrNode = document.getElementsByClassName("page-header navbar navbar-fixed-top")[0];//登记人
+    var djrvalue = document.createElement('select');
+        djrvalue.setAttribute('name','djr');
+        djrvalue.setAttribute('id','djr');
+        djrvalue.style = "position: relative;top: 14px; left: 680px;color:red;font-size;50px;text-align:center;height=110px;border:1px solid red;display:inline-block;";
+        djrvalue.innerHTML =
+                     '<option value="0" >---登记人---</option>'
+					+'<option value="齊元章">齊元章</option>'
+					+'<option value="楊嘉儀">楊嘉儀</option>'
+                    +'<option value="徐文建">徐文建</option>'
+                    +'<option value="李若蘭">李若蘭</option>'
+                    +'<option value="曹  可">曹  可</option>'
+                    +'<option value="曲開拓">曲開拓</option>'
+                    +'<option value="姜甜甜">姜甜甜</option>'
+       djrNode.appendChild(djrvalue);
+    var thNode = document.getElementsByClassName("page-header navbar navbar-fixed-top")[0];//備註
+    var thhNode = document.createElement('select');
+        thhNode.setAttribute('name','tigong');
+        thhNode.setAttribute('id','tigong');
+        thhNode.style = "position: relative;top: 14px; left: 700px;color:red;font-size;50px;text-align:center;height=110px;width:100px;border:1px solid red;display:inline-block;";
+        thhNode.innerHTML =
+                     '<option value="運費0">-----備註-----</option>'
+					+'<option value="運費300">運費300</option>'
+					+'<option value="運費99">運費99</option>'
+                    +'<option value="運費一半">退一半不取件</option>'
+       thNode.appendChild(thhNode);
+    var thyyNode = document.getElementsByClassName("page-header navbar navbar-fixed-top")[0];//退貨
+    var thhyyNode = document.createElement('select');
+        thhyyNode.setAttribute('name','thvalue');
+        thhyyNode.setAttribute('id','thvalue');
+        thhyyNode.style = "position: relative;top: 14px; left: -30px;color:red;font-size;50px;text-align:center;height=110px;border:1px solid red;display:inline-block;";
+        thhyyNode.innerHTML =
+                     '<option value="">-----------退貨原因-----------</option>'
+					+'<option value="與產品網頁不符">與產品網頁不符</option>'
+					+'<option value="质量差">质量差</option>'
+                    +'<option value="大小不合适">大小不合适</option>'
+                    +'<option value="未订购">未订购</option>'
+                    +'<option value="非正品要求退貨">非正品要求退貨</option>'
+                    +'<option value="不适用，不喜欢，不想要">不适用，不喜欢，不想要</option>'
+                    +'<option value="商品有瑕疵，損壞">商品有瑕疵，損壞</option>'
+                    +'<option value="到货不能使用">到货不能使用</option>'
+                    +'<option value="品質不符預期">品質不符預期</option>'
+                    +'<option value="问题件">问题件</option>'
+                    +'<option value="发错商品，少发">发错商品，少发</option>'
+       thyyNode.appendChild(thhyyNode);
+        var hhyyNode = document.getElementsByClassName("page-header navbar navbar-fixed-top")[0];//換貨
+        var hhhyyNode = document.createElement('select');
+        hhhyyNode.setAttribute('name','hhvalue');
+        hhhyyNode.setAttribute('id','hhvalue');
+        hhhyyNode.style = "position: relative;top: 14px; left: -10px;color:red;font-size;50px;text-align:center;height=310px;border:1px solid red;display:inline-block;";
+        hhhyyNode.innerHTML =
+                     '<option value="">-------------------換貨原因------------------</option>'
+					+'<option value="换大，仓库发错">换大，仓库发错</option>'
+					+'<option value="换小，仓库发错">换小，仓库发错</option>'
+                    +'<option value="换颜色，仓库发错">换颜色，仓库发错</option>'
+                    +'<option value="换大，客户自己选错">换大，客户自己选错</option>'
+                    +'<option value="换小，客户自己选错">换小，客户自己选错</option>'
+                    +'<option value="换大，产品尺码不正常">换大，产品尺码不正常</option>'
+                    +'<option value="换小，产品尺码不正常">换小，产品尺码不正常</option>'
+                    +'<option value="换颜色，产品颜色与网站不符">换颜色，产品颜色与网站不符</option>'
+                    +'<option value="发错，换新，客户自己选错">发错，换新，客户自己选错</option>'
+                    +'<option value="发错，换新，仓库发错">发错，换新，仓库发错</option>'
+                    +'<option value="瑕疵，换新">瑕疵，换新</option>'
+                    +'<option value="损坏，换新">损坏，换新</option>'
+                    +'<option value="到货不满意，与网站不符，换新">到货不满意，与网站不符，换新</option>'
+                    +'<option value="換產品補差價，产品不满意">換產品補差價，产品不满意</option>'
+                    +'<option value="換產品補差價，与网站不符">換產品補差價，与网站不符</option>'
+                    +'<option value="發錯貨，二次換貨，仓库发错">發錯貨，二次換貨，仓库发错</option>'
+                    +'<option value="發錯貨，二次換貨，客户自己提供错">發錯貨，二次換貨，客户自己提供错</option>'
+                    +'<option value="换产品">换产品</option>'
+                    +'<option value="無法使用，換新">無法使用，換新</option>'
+       hhyyNode.appendChild(hhhyyNode);
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  document.getElementById("fz_searchButton").addEventListener("click", function fn() {//一鍵複製
+    var text= document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("tr")[3].innerText;//一鍵複製
+           console.log(text);
+    var textArea = document.createElement('input');
+        textArea.value = text;
+      document.body.appendChild(textArea);
+      //  textArea.style.display = "none";
+        textArea.select();
+        document.execCommand('copy');
+      alert("复制成功");
+         setTimeout(function () {
+            document.body.removeChild(textArea);
+        }, 100);
+  },false)
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    var wxzbgNode = document.createElement('div');
+        wxzbgNode.setAttribute('class','wxz-bg');
+        wxzbgNode.style.display = 'none';
+    document.querySelector('body').appendChild(wxzbgNode);
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  var tulNode = document.getElementsByClassName('page-sidebar-menu  page-header-fixed ')[0];
+   var tul = document.createElement('li');
+       tul.setAttribute('class','nav-item  ');
+     //  tul.setAttribute('id','t_question_modal');
+      // tul.style.display = 'none';
+       tul.innerHTML =
+               '<a href="javascript:; function (e)" class="nav-link nav-toggle">\
+                    <i class="icon-layers"></i>\
+                    <span class="title" style = "color:red">不正式管理</span>\
+                    <span class="arrow"></span>\
+                </a>\
+                      <ul class="sub-menu">\
+                           <li class="nav-item  " target="_blank">\
+                                <a href="/admin/order/orderquery.html" class="nav-link " target="view_window">\
+                                <span class="title">登記退換貨表</span>\
+                                </a>\
+                           </li>\
+                           <li class="nav-item  ">\
+                                <a href="https://fanyi.baidu.com/?aldtype=16047#auto/zh" class="nav-link "  id="tul_search">\
+                                <span class="title">百度翻译</span>\
+                                </a>\
+                           </li>\
+                           <li class="nav-item  ">\
+                                <a href="//tvlove.club/giikin/set/email.html" class="nav-link ">\
+                                <span class="title">邮箱登录</span>\
+                                </a>\
+                           </li>\
+                           <li class="nav-item  ">\
+                                <a href="https://www.hct.com.tw/search/searchgoods_n.aspx" class="nav-link ">\
+                                <span class="title">新竹物流</span>\
+                                </a>\
+                           </li>\
+                           <li class="nav-item  " target="_blank">\
+                                <a href="https://alidocs.dingtalk.com/spreadsheet/edit?dentryKey=dYa20qQ3jSkNqY48" class="nav-link " target="view_window">\
+                                <span class="title">釘釘登記退換貨表</span>\
+                                </a>\
+                           </li>\
+                       </ul>\
+            </li>\;'
+       tulNode.appendChild(tul);
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  /*      var cxval = document.createElement('script');
+            cxval.innerHTML =
+   'var a=1;\
+    function aaa(){\
+        $.ajax({\
+            url: "/index.php",\
+            type: "POST",\
+            dataType: "json",\
+            async: true,//先打印a，再走ajax（异步）(其实a和ajax一起执行的，不过ajax返回的慢，所以先打印了a)\
+            success: function (data) {\
+                alert(data);\
+                window.location.href="http://www.baidu.com";\
+                a=2;\
+            };\
+            error:function(){\
+                alert(2222);\
+                a=2;\
+            }\
+        });\
+        alert(a);\
+    }\;'
+            document.querySelector('body').appendChild(cxval);
+*/ //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      var cxvalue = document.createElement('script');//GO-查詢
+          cxvalue.setAttribute('type','text/javascript');
+          cxvalue.innerHTML =
+        'function loadDoc(){\
+             var xhr;\
+            if(window.XMLHttpRequest){\
+                xhr=new XMLHttpRequest();\
+            }else{\
+                xhr=new ActiveXObject("Microsoft.XMLHTTP");\
+                 };\
+          xhr.onreadystatechange=function(){\
+            if(xhr.readyState==4 && xhr.status==200){\
+              console.log(xhr.responseText);\
+                 }\
+           };\
+         xhr.open("GET","https://goms.giikin.com/admin/login/index.html",true);\
+         xhr.send();\
+           }\;'
+       document.querySelector('body').appendChild(cxvalue);
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      var cxcsvalue = document.createElement('script');//-查詢
+          cxcsvalue.setAttribute('type','text/javascript');
+          cxcsvalue.innerHTML =
+        'function csloadDoc(){\
+             var xhr;\
+            if(window.XMLHttpRequest){\
+                xhr=new XMLHttpRequest();\
+            }else{\
+                xhr=new ActiveXObject("Microsoft.XMLHTTP");\
+                 };\
+          xhr.onreadystatechange=function(){\
+            if(xhr.readyState==4 && xhr.status==200){\
+              console.log(xhr.responseText);\
+                 }\
+           };\
+         xhr.open("GET","https://goms.giikin.com/admin/order/info/id/9069909/query/1/param/0.html",true);\
+         xhr.send();\
+           }\;'
+       document.querySelector('body').appendChild(cxcsvalue);
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   (function() {
+        var stNode2 = document.createElement('script');
+            stNode2 .src ="https://goms.giikin.com/static/admin/js/tabs.js"
+            document.querySelector('body').appendChild(stNode2);
+    })();
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  document.getElementById("wxcx_searchButton").addEventListener("click", function fn() {//客服
+      var djTime = new Date().toLocaleString() + ' 星期'+'日一二三四五六'.charAt(new Date().getDay());
+             var xhr;
+             var wxcx = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByClassName("form-control input-inline input-medium")[0];
+             var wxcx_value=wxcx.value;
+      var item = wxcx_value.indexOf(",")
+      if(item=-1){
+      if(window.XMLHttpRequest){
+                xhr=new XMLHttpRequest();
+            }else{
+                xhr=new ActiveXObject("Microsoft.XMLHTTP");
+                 };
+          xhr.onreadystatechange=function(){
+            if(xhr.readyState==4 && xhr.status==200){
+                          //console.log(xhr.responseText);
+                      var xhrVal = xhr.responseText;
+                      var splitVal1 = xhrVal.split("<td>")[1].split("</td>")[0];//订单号
+                          console.log(splitVal1);
+                      var splitVal2 = xhrVal.split("<td>")[2].split("</td>")[0];//订单状态
+                          console.log(splitVal2);
+                      var splitVal3 = xhrVal.split("<td>")[3].split("</td>")[0];//物流单号
+                          console.log(splitVal3);
+                var splitVal4 = xhrVal.split("<td>")[4].split("</td>")[0];//来源平台
+                          console.log(splitVal4);
+                var splitVal5 = xhrVal.split("<td>")[5].split("</td>")[0];//商品名称
+                          console.log(splitVal5);
+                var splitVal6 = xhrVal.split("<td>")[6].split("</td>")[0];//是否二次改派
+                          console.log(splitVal6);
+                var splitVal8 = xhrVal.split("<td>")[8].split("</td>")[0];//规格
+                          console.log(splitVal8);
+                var splitVal9 = xhrVal.split("<td>")[9].split("</td>")[0];//数量
+                          console.log(splitVal9);
+                var splitVal12 = xhrVal.split("<td>")[12].split("</td>")[0];//下单时间
+                         console.log(splitVal12);
+                //var splitVal13 = xhrVal.split("<td>")[13].split("</td>")[0];//姓名
+                //          console.log(splitVal13);
+                //var splitVal14 = xhrVal.split("<td>")[14].split("</td>")[0];//电话
+                 //         console.log(splitVal14);
+                //var splitVal17 = xhrVal.split("<td>")[17].split("</td>")[0];//物流状态
+                //          console.log(splitVal17);
+                //var splitVal18 = xhrVal.split("<td>")[18].split("</td>")[0];//地址
+                 //         console.log(splitVal18);
+                var splitVal20 = xhrVal.split("/admin/order/")[1].split('" target="_blank"')[0];
+                          console.log(splitVal20);
+
+             var xhr0;
+             var strHtml0 ="";
+             var xhr_url0 = "https://goms.giikin.com/admin/order/" + splitVal20;
+                           //info/id/9424638/query/1/param/0.html
+            if(window.XMLHttpRequest){
+                xhr0=new XMLHttpRequest();
+            }else{
+                xhr0=new ActiveXObject("Microsoft.XMLHTTP");
+                 };
+          xhr0.onreadystatechange=function(){
+            if(xhr0.readyState==4 && xhr0.status==200){
+                var split0="";
+                var hehe=xhr0.responseText;
+                    console.log(xhr0.responseText);
+                var split1=hehe.split("</td>")[2].split('class="td-text">')[1];//订单编号2
+                var split2=hehe.split("</td>")[10].split('class="td-text">')[1];//订单金额7-16
+                var split3=hehe.split("</td>")[18].split('class="td-text">')[1];//支付方式21
+                var split4=hehe.split("</td>")[22].split('class="td-text">')[1];//派送方式18
+                if( split4.indexOf("易速配") != -1){
+                   split0="";
+                   }else {
+                   split0 += "4103173926";
+                   };
+                var split5=hehe.split("</td>")[32].split('class="td-text">')[1];//站點ID24
+                var split6=hehe.split("商品清單")[1].split("<td>")[4].split("</td>")[0];//站點ID24
+                    console.log(split6);
+                 var dd = document.getElementById("djr").value;//登记人
+
+                var thNode1 = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+                var thNode2 = document.createElement('thead');
+                    thNode2.innerHTML =
+                                       "<tr>"
+                                          + "<th> 补发货品 </th>"
+                                          + "<th> 姓名 </th>"
+                                          + "<th> 电话 </th>"
+                                          + "<th> 补发規格 </th>"
+                                          + "<th> 备注 </th>"
+                                          + "<th> 地址 </th>"
+                                          + "<th> 訂單備註</th>"
+                                          + "<th> 分组 </th>"
+                                          + "<th> 数量 </th>"
+                                          + "<th> 产品ID </th>"
+                                          + "<th> 登记人 </th>"
+                                          + "<th> 补发备注 </th>"
+                                          + "<th> 时间戳 </th>"
+                                          + "<th> 备注 </th>"
+                                          + "<th> 站點ID </th>"
+                                   + "</tr>";
+                    thNode1.append(thNode2);
+                var thNode111 = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];;
+                    console.log(thNode111);
+                var thNode222 = document.createElement('tbody');
+                    thNode222.innerHTML =
+                                  "<tr>"
+                                          + "<td>" + splitVal5 + "</td>"//名称
+                                          + "<td>" + splitVal13 + "</td>"
+                                          + "<td>" + splitVal14 + "</td>"
+                                          + "<td>" + splitVal8 + " </td>"//规格
+                                          + "<td>(原訂單號：" + split1 + ")</td>" //备注
+                                          + "<td>" + splitVal18 + " </td>"//地址
+                + "<td>  </td>"
+                + "<td>  </td>"
+                + "<td>  </td>"
+                + "<td>" + split6 + "</td>" //产品ID
+                + "<td>" + dd + "</td>"//登记人
+                + "<td>補發原單號：" + split1 + "</td>" //补发备注
+                + "<td>" + djTime + "</td>"
+                + "<td></td>" //备注
+                + "<td>" + split5 + "</td>" //站點ID24
+                thNode111.appendChild(thNode222);
+                var thNodeVal0 = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByTagName("thead")[0];
+                    thNodeVal0.setAttribute("style","display:none");
+                var thNodeVal1 = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByTagName("tbody")[0];
+                    thNodeVal1.setAttribute("style","display:none");
+                        }
+                      };
+                 xhr.open("GET",xhr_url0,false);
+                 xhr.send();
+              }
+           };
+         xhr.open("post","https://goms.giikin.com/admin/order/orderquery.html",false);
+         xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+         xhr.send("order_number=" + wxcx_value);
+      }else{
+        var item_arr = wxcx_value.split(",");
+        var helper =function(){
+           xhr.onreadystatechange = function(){
+            if(xhr.readyState==4 && xhr.status==200){
+              console.log(xhr.responseText);
+                 }
+              };
+        };
+          for (var i=0;i<item_arr.length;i++){
+            if(window.XMLHttpRequest){
+                xhr=new XMLHttpRequest();
+            }else{
+                xhr=new ActiveXObject("Microsoft.XMLHTTP");
+                 };
+         xhr.open("post","https://goms.giikin.com/admin/order/orderquery.html",true);
+         xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+         xhr.send("order_number=" + item_arr[i]);
+              helper();
+          }
+      }
+  },false)
+/*
+var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByClassName("portlet-body")[0];
+       thNodeVal.setAttribute("style","display:none");
+*/ //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      document.getElementById("bf_searchButton").addEventListener("click", function() {//补发
+     // var thhNode_val = document.getElementById("tigong").value;
+      var djTime = new Date().toLocaleString() + ' 星期'+'日一二三四五六'.charAt(new Date().getDay());
+      var wxcx_value = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("td")[20];
+      var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("tbody")[0].firstElementChild;
+          var thVal= thNodeVal.children[0].innerHTML
+         console.log(thNodeVal.children[0].innerHTML);//订单号
+         console.log(thNodeVal.children[1].innerHTML);//订单状态
+         console.log(thNodeVal.children[2].innerHTML);//物流单号
+         console.log(thNodeVal.children[3].innerHTML);//来源平台
+      var wxcx_value1 = wxcx_value.firstElementChild;
+      var wx = wxcx_value1.getAttribute("href");
+      var item_arr = wx.split("/admin/order/")[1];
+          console.log(item_arr);
+
+             var xhr;
+             var strHtml ="";
+             var xhr_url = "https://goms.giikin.com/admin/order/" + item_arr
+                           //info/id/9424638/query/1/param/0.html
+            if(window.XMLHttpRequest){
+                xhr=new XMLHttpRequest();
+            }else{
+                xhr=new ActiveXObject("Microsoft.XMLHTTP");
+                 };
+          xhr.onreadystatechange=function(){
+            if(xhr.readyState==4 && xhr.status==200){
+          var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("tbody")[0].firstElementChild;
+          var thVal= thNodeVal.children[0].innerHTML
+         console.log(thNodeVal.children[0].innerHTML);//订单号
+         console.log(thNodeVal.children[1].innerHTML);//订单状态
+         console.log(thNodeVal.children[2].innerHTML);//物流单号
+         console.log(thNodeVal.children[3].innerHTML);//来源平台
+
+                var split0="";
+                var hehe=xhr.responseText;
+                var split1=hehe.split("</td>")[2].split('class="td-text">')[1];//订单编号2
+                var split2=hehe.split("</td>")[10].split('class="td-text">')[1];//订单金额7-16
+                var split3=hehe.split("</td>")[18].split('class="td-text">')[1];//支付方式21
+                var split4=hehe.split("</td>")[22].split('class="td-text">')[1];//派送方式18
+                if( split4.indexOf("易速配") != -1){
+                   split0="";
+                   }else {
+                   split0 += "4103173926";
+                   };
+                var split5=hehe.split("</td>")[32].split('class="td-text">')[1];//站點ID24
+                var split6=hehe.split("商品清單")[1].split("<td>")[4].split("</td>")[0];//站點ID24
+                    console.log(split6);
+                 var dd = document.getElementById("djr").value;//登记人
+         /*     var dj_name = document.getElementsByClassName("username username-hide-on-mobile")[0].innerHTML;;
+                var dd;
+                    console.log(dj_name);
+               if(dj_name = "qiyuanzhang@jikeyin.com"){
+                     dd ="齊元章";
+               }else if(dj_name = "suyaru@jikeyin.com"){
+                     dd = "蘇亞茹";
+               }else if(dj_name = "yangjiayi@jikeyin.com"){
+                     dd = "楊嘉儀";
+               }else if(dj_name = "xuwenjian@jikeyin.com"){
+                     dd = "徐文建";
+               }else if(dj_name = "liruolan@jikeyin.com"){
+                     dd = "李若蘭";
+               }else if(dj_name = "caokeke@jikeyin.com"){
+                     dd = "曹可";
+               }else if(dj_name = "jiangtiantian@jikeyin.com"){
+                     dd = "姜甜甜";
+               }else if(dj_name = "qukaituo@jikeyin.com"){
+                     dd = "曲開拓";
+               };
+                  console.log(dd);
+*/
+                var thNode1 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];;
+                var thNode2 = document.createElement('thead');
+                    thNode2.innerHTML =
+                                       "<tr>"
+                                          + "<th> 补发货品 </th>"
+                                          + "<th> 姓名 </th>"
+                                          + "<th> 电话 </th>"
+                                          + "<th> 补发規格 </th>"
+                                          + "<th> 备注 </th>"
+                                          + "<th> 地址 </th>"
+                                          + "<th> 訂單備註</th>"
+                                          + "<th> 分组 </th>"
+                                          + "<th> 数量 </th>"
+                                          + "<th> 产品ID </th>"
+                                          + "<th> 登记人 </th>"
+                                          + "<th> 补发备注 </th>"
+                                          + "<th> 时间戳 </th>"
+                                          + "<th> 备注 </th>"
+                                          + "<th> 站點ID </th>"
+                                   + "</tr>";
+                   thNode1.append(thNode2);
+                var thNode111 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];;
+                    console.log(thNode111);
+                var thNode222 = document.createElement('tbody');
+                    thNode222.innerHTML =
+                                  "<tr>"
+                                          + "<td>" + thNodeVal.children[4].innerHTML + "</td>"//名称
+                                          + "<td>" + thNodeVal.children[12].innerHTML + "</td>"
+                                          + "<td>" + thNodeVal.children[13].innerHTML + "</td>"
+                                          + "<td>" + thNodeVal.children[7].innerHTML + " </td>"//规格
+                                          + "<td>(原訂單號：" + split1 + ")</td>" //备注
+                                          + "<td>" + thNodeVal.children[17].innerHTML + " </td>"//地址
+                + "<td>  </td>"
+                + "<td>  </td>"
+                + "<td>  </td>"
+                + "<td>" + split6 + "</td>" //产品ID
+                + "<td>" + dd + "</td>"//登记人
+                + "<td>補發原單號：" + split1 + "</td>" //补发备注
+                + "<td>" + djTime + "</td>"
+                + "<td></td>" //备注
+                + "<td>" + split5 + "</td>" //站點ID24
+                thNode111.appendChild(thNode222);
+                var thNodeVal0 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("thead")[0];
+                    thNodeVal0.setAttribute("style","display:none");
+                var thNodeVal1 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("tbody")[0];
+                    thNodeVal1.setAttribute("style","display:none");
+                 }
+           };
+         xhr.open("GET",xhr_url,true);
+         xhr.send();
+  },false);
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  document.getElementById("hh_searchButton").addEventListener("click", function() {//换货
+      var hh_val = document.getElementById("hhvalue").value;
+      var djTime = new Date().toLocaleString() + ' 星期'+'日一二三四五六'.charAt(new Date().getDay());
+      var wxcx_value = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("td")[20];
+      var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("tbody")[0].firstElementChild;
+          var thVal= thNodeVal.children[0].innerHTML
+         console.log(thNodeVal.children[0].innerHTML);//订单号
+         console.log(thNodeVal.children[1].innerHTML);//订单状态
+         console.log(thNodeVal.children[2].innerHTML);//物流单号
+         console.log(thNodeVal.children[3].innerHTML);//来源平台
+      var wxcx_value1 = wxcx_value.firstElementChild;
+      var wx = wxcx_value1.getAttribute("href");
+      var item_arr = wx.split("/admin/order/")[1];
+          console.log(item_arr);
+
+             var xhr;
+             var strHtml ="";
+             var xhr_url = "https://goms.giikin.com/admin/order/" + item_arr
+                           //info/id/9424638/query/1/param/0.html
+            if(window.XMLHttpRequest){
+                xhr=new XMLHttpRequest();
+            }else{
+                xhr=new ActiveXObject("Microsoft.XMLHTTP");
+                 };
+          xhr.onreadystatechange=function(){
+            if(xhr.readyState==4 && xhr.status==200){
+          var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("tbody")[0].firstElementChild;
+          var thVal= thNodeVal.children[0].innerHTML
+         console.log(thNodeVal.children[0].innerHTML);//订单号
+         console.log(thNodeVal.children[1].innerHTML);//订单状态
+         console.log(thNodeVal.children[2].innerHTML);//物流单号
+         console.log(thNodeVal.children[3].innerHTML);//来源平台
+
+                var split0="";
+                var hehe=xhr.responseText;
+                var split1=hehe.split("</td>")[2].split('class="td-text">')[1];//订单编号2
+                var split2=hehe.split("</td>")[10].split('class="td-text">')[1];//订单金额7-16
+                var split3=hehe.split("</td>")[18].split('class="td-text">')[1];//支付方式21
+                var split4=hehe.split("</td>")[22].split('class="td-text">')[1];//派送方式18
+                if( split4.indexOf("易速配") != -1){
+                   split0="";
+                   }else {
+                   split0 += "4103173926";
+                   };
+                var split5=hehe.split("</td>")[32].split('class="td-text">')[1];//站點ID24
+
+                 var thhNode_val = document.getElementById("tigong").value;
+                     if(thhNode_val == "運費0"){
+                        thhNode_val ="";
+                       }else if(thhNode_val == "運費一半"){
+                        thhNode_val ="";
+                       } else {
+                        thhNode_val = thhNode_val;
+                       };
+                        console.log(thhNode_val);
+                var dd = document.getElementById("djr").value;//登记人
+           /*   var dj_name = document.getElementsByClassName("username username-hide-on-mobile")[0].innerHTML;;
+                var dd;
+                    console.log(dj_name);
+               if(dj_name = "qiyuanzhang@jikeyin.com"){
+                     dd ="齊元章";
+               }else if(dj_name = "suyaru@jikeyin.com"){
+                     dd = "蘇亞茹";
+               }else if(dj_name = "yangjiayi@jikeyin.com"){
+                     dd = "楊嘉儀";
+               }else if(dj_name = "xuwenjian@jikeyin.com"){
+                     dd = "徐文建";
+               }else if(dj_name = "liruolan@jikeyin.com"){
+                     dd = "李若蘭";
+               }else if(dj_name = "caokeke@jikeyin.com"){
+                     dd = "曹可";
+               }else if(dj_name = "jiangtiantian@jikeyin.com"){
+                     dd = "姜甜甜";
+               }else if(dj_name = "qukaituo@jikeyin.com"){
+                     dd = "曲開拓";
+               };
+                  console.log(dd);
+*/
+                var thNode1 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];;
+                var thNode2 = document.createElement('thead');
+                    thNode2.innerHTML =
+                                       "<tr>"
+                                          + "<th> 换新品名 </th>"
+                                          + "<th> 姓名 </th>"
+                                          + "<th> 电话 </th>"
+                                          + "<th> 规格 </th>"
+                                          + "<th> 备注 </th>"
+                                          + "<th> 地址 </th>"
+                                          + "<th> 收回货物的运单号</th>"
+                                          + "<th> 原产品 </th>"
+                                          + "<th> 原规格 </th>"
+                                          + "<th> 原因 </th>"
+                                          + "<th> 备注原因 </th>"
+                                          + "<th> 分组 </th>"
+                                          + "<th> 数量 </th>"
+                                          + "<th> 产品ID </th>"
+                                          + "<th> 物流渠道 </th>"
+                                          + "<th> 登记人 </th>"
+                                          + "<th> 订单来源 </th>"
+                                          + "<th> 换货备注 </th>"
+                                          + "<th> 时间戳 </th>"
+                                          + "<th> 备注 </th>"
+                                          + "<th> 站點ID </th>"
+                                   + "</tr>";
+                   thNode1.append(thNode2);
+                var thNode111 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];;
+                    console.log(thNode111);
+                var thNode222 = document.createElement('tbody');
+                    thNode222.innerHTML =
+                                  "<tr>"
+                                          + "<td>" + thNodeVal.children[4].innerHTML + "</td>"//名称
+                                          + "<td>" + thNodeVal.children[12].innerHTML + "1</td>"
+                                          + "<td>" + thNodeVal.children[13].innerHTML + "</td>"
+                                          + "<td>" + thNodeVal.children[7].innerHTML + " </td>"//规格
+                        + "<td>客戶要求換貨；派送新貨的同時；需要把原貨收回；（需要收回的原貨運單號"
+                        + thNodeVal.children[2].innerHTML+"）(原訂單編號： " + split1 + ")</td>" //备注
+                                          + "<td>" + thNodeVal.children[17].innerHTML + " </td>"//地址
+                                          + "<td>" + thNodeVal.children[2].innerHTML + "  </td>"
+                                          + "<td>" + thNodeVal.children[4].innerHTML + "</td>"
+                                          + "<td>" + thNodeVal.children[7].innerHTML + " </td>"//规格
+                + "<td>" + hh_val + "</td>"
+                + "<td>  </td>"
+                + "<td>  </td>"
+                + "<td>" + thNodeVal.children[8].innerHTML + "</td>" //数量
+                + "<td>" + thNodeVal.children[4].innerHTML.split("#")[0] + "</td>" //产品ID
+                + "<td>" + split4 + "</td>"//物流渠道
+                + "<td>" + dd + "</td>"//登记人
+                + "<td>" + thNodeVal.children[3].innerHTML + "</td>" //订单来源
+                + "<td>換貨原單號：" + split1 + "來回件</td>" //换货备注
+                + "<td>" + djTime + "</td>"
+                + "<td>" + thhNode_val + "</td>"
+                + "<td>" + split5 + "</td>" //站點ID24
+                thNode111.appendChild(thNode222);
+                var thNodeVal0 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("thead")[0];
+                    thNodeVal0.setAttribute("style","display:none");
+                var thNodeVal1 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("tbody")[0];
+                    thNodeVal1.setAttribute("style","display:none");
+                 }
+           };
+         xhr.open("GET",xhr_url,true);
+         xhr.send();
+  },false);
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    document.getElementById("th_searchButton").addEventListener("click", function() {//退货
+      var th_val = document.getElementById("thvalue").value;
+      var djTime = new Date().toLocaleString() + ' 星期'+'日一二三四五六'.charAt(new Date().getDay());
+      var wxcx_value = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("td")[20];
+      var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("tbody")[0].firstElementChild;
+          var thVal= thNodeVal.children[0].innerHTML
+         console.log(thNodeVal.children[0].innerHTML);//订单号
+         console.log(thNodeVal.children[1].innerHTML);//订单状态
+         console.log(thNodeVal.children[2].innerHTML);//物流单号
+         console.log(thNodeVal.children[3].innerHTML);//来源平台
+      var wxcx_value1 = wxcx_value.firstElementChild;
+      var wx = wxcx_value1.getAttribute("href");
+      var item_arr = wx.split("/admin/order/")[1];
+          console.log(item_arr);
+
+             var xhr;
+             var strHtml ="";
+             var xhr_url = "https://goms.giikin.com/admin/order/" + item_arr
+                           //info/id/9424638/query/1/param/0.html
+            if(window.XMLHttpRequest){
+                xhr=new XMLHttpRequest();
+            }else{
+                xhr=new ActiveXObject("Microsoft.XMLHTTP");
+                 };
+          xhr.onreadystatechange=function(){
+            if(xhr.readyState==4 && xhr.status==200){
+          var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("tbody")[0].firstElementChild;
+          var thVal= thNodeVal.children[0].innerHTML
+         console.log(thNodeVal.children[0].innerHTML);//订单号
+         console.log(thNodeVal.children[1].innerHTML);//订单状态
+         console.log(thNodeVal.children[2].innerHTML);//物流单号
+         console.log(thNodeVal.children[3].innerHTML);//来源平台
+
+                var split0="";
+                var splitBeizhu ="";
+                var hehe=xhr.responseText;
+                var split1=hehe.split("</td>")[2].split('class="td-text">')[1];//订单编号2
+                var split2=hehe.split("</td>")[10].split('class="td-text">')[1];//订单金额7-16
+                var split3=hehe.split("</td>")[18].split('class="td-text">')[1];//支付方式21
+                var split4=hehe.split("</td>")[22].split('class="td-text">')[1];//派送方式18
+                if( split4.indexOf("易速配") != -1){
+                   split0="";
+                   }else {
+                   split0 += "4103173926";
+                   };
+                var split5=hehe.split("</td>")[32].split('class="td-text">')[1];//站點ID24
+               // var splitBeizhu = Number(split2) - Number(thhNode_val.split("運費")[1]);//退款金额
+               var thhNode_val = document.getElementById("tigong").value;
+                    splitBeizhu = Number(split2) - Number(thhNode_val.split("運費")[1]);
+                if(thhNode_val == "運費0"){
+                   thhNode_val ="";
+                  }else if(thhNode_val == "運費一半"){
+                   thhNode_val ="退一半不取件";
+                   splitBeizhu = Number(split2) - Number(split2)/2;
+                  } else {
+                   thhNode_val = thhNode_val;
+
+                  };
+                   console.log(thhNode_val);
+
+                var dd = document.getElementById("djr").value;//登记人
+           /*     var dj_name = document.getElementsByClassName("username username-hide-on-mobile")[0].innerHTML;;
+                var dd;
+                    console.log(dj_name);
+               if(dj_name = "qiyuanzhang@jikeyin.com"){
+                     dd ="齊元章";
+               }else if(dj_name = "suyaru@jikeyin.com"){
+                     dd = "蘇亞茹";
+               }else if(dj_name = "yangjiayi@jikeyin.com"){
+                     dd = "楊嘉儀";
+               }else if(dj_name = "xuwenjian@jikeyin.com"){
+                     dd = "徐文建";
+               }else if(dj_name = "liruolan@jikeyin.com"){
+                     dd = "李若蘭";
+               }else if(dj_name = "caokeke@jikeyin.com"){
+                     dd = "曹可";
+               }else if(dj_name = "jiangtiantian@jikeyin.com"){
+                     dd = "姜甜甜";
+               }else if(dj_name = "qukaituo@jikeyin.com"){
+                     dd = "曲開拓";
+               };
+                  console.log(dd);
+*/
+                var thNode1 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];;
+                var thNode2 = document.createElement('thead');
+                    thNode2.innerHTML =
+                                       "<tr>"
+                                          + "<th> 客代 </th>"
+                                          + "<th> 原订单号 </th>"
+                                          + "<th> 出货单名称 </th>"
+                                          + "<th> 收货人 </th>"
+                                          + "<th> 联系电话 </th>"
+                                          + "<th> 規格 </th>"
+                                          + "<th> 订单金额</th>"
+                                          + "<th> 地址 </th>"
+                                          + "<th> 数量 </th>"
+                                          + "<th> 运单号 </th>"
+                                          + "<th> 原因 </th>"
+                                          + "<th> 备注原因 </th>"
+                                          + "<th> 戶名 </th>"
+                                          + "<th> 银行账号 </th>"
+                                          + "<th> 銀行/分行 </th>"
+                                          + "<th> 退款金额 </th>"
+                                          + "<th> 下单时间 </th>"
+                                          + "<th> 物流渠道 </th>"
+                                          + "<th> 登记人 </th>"
+                                          + "<th> 订单来源 </th>"
+                                          + "<th> 支付方式 </th>"
+                                          + "<th> 时间戳 </th>"
+                                          + "<th> 备注 </th>"
+                                          + "<th> 站点ID </th>"
+                                   + "</tr>";
+                   thNode1.append(thNode2);
+                var thNode111 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];;
+                    console.log(thNode111);
+                var thNode222 = document.createElement('tbody');
+                    thNode222.innerHTML =
+                                  "<tr>"
+                                          + "<td>" + split0 + "</td>"
+                                          + "<td>" + split1 + "</td>" //订单编号2
+                                          + "<td>" + thNodeVal.children[4].innerHTML + "</td>"
+                                          + "<td>" + thNodeVal.children[12].innerHTML + "</td>"
+                                          + "<td>" + thNodeVal.children[13].innerHTML + "</td>"
+                                          + "<td>" + thNodeVal.children[7].innerHTML + " </td>"
+                                          + "<td>" + split2 + "</td>" //订单金额7-16
+                                          + "<td>" + thNodeVal.children[17].innerHTML + " </td>"
+                                          + "<td>" + thNodeVal.children[8].innerHTML + "  </td>"
+                                          + "<td>" + thNodeVal.children[2].innerHTML + "</td>"
+                                          + "<td>" + th_val +" </td>"
+                                          + "<td>  </td>"
+                + "<td>" + thNodeVal.children[12].innerHTML + "</td>"
+                + "<td>  </td>"
+                + "<td>  </td>"
+                + "<td>" + splitBeizhu + "</td>" //退款金额7-16
+                + "<td>" + thNodeVal.children[11].innerHTML + "</td>"
+                + "<td>" + split4 + "</td>" //派送方式18
+                + "<td>" + dd + "</td>"
+                + "<td>" + thNodeVal.children[3].innerHTML + "</td>"
+                + "<td>" + split3 + "</td>" //支付方式21
+                + "<td>" + djTime + "</td>"
+                + "<td>" + thhNode_val + "</td>"
+                + "<td>" + split5 + "</td>" //站點ID24
+                thNode111.appendChild(thNode222);
+                var thNodeVal0 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("thead")[0];
+                    thNodeVal0.setAttribute("style","display:none");
+                var thNodeVal1 = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByTagName("tbody")[0];
+                    thNodeVal1.setAttribute("style","display:none");
+                 }
+           };
+         xhr.open("GET",xhr_url,true);
+         xhr.send();
+  },false)
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+      // //  csval = xhr.getRequestHeader("Set-Cookie");\     console.log(csval);\
+  /* document.getElementById("tul_search").addEventListener("click", function fn() {//客服查詢界面打開
+// JavaScript Document
+var Tabs = function(){
+	var tabs = new Array();
+	var panels = new Array();
+	var target, tabNav, tabContent, activeTab;
+	var opts = {};
+	return {
+		init: function(tabObject, options){
+			target = tabObject;
+			tabNav = target.find(".nav-tabs");
+			tabContent = target.find(".tab-content");
+			var navHome = $("#tab_navHome");
+			    navHome.data['panel'] = $("#tabHome");
+			tabs.push(navHome);
+			panels.push($("#tabHome"));
+			opts = options || opts;
+			activeTab = navHome;
+			navHome.click(function(e){
+				if(!$(this).hasClass("active")){
+					if(opts.onChange){
+						opts.onChange($(this), activeTab);
+					}
+					activeTab = $(this);
+				}
+			});
+		},
+		getActive: function(){
+			return activeTab;
+		},
+		add: function(id, title, url){
+			for(var i=0;i < tabs.length; i++){
+				panels[i].removeClass("active");
+				tabs[i].removeClass("active");
+			}
+
+			for(var ii = 0;ii < tabs.length; ii++){
+				if(tabs[ii].attr("id")=='tab_' + id){
+					panels[ii].addClass("active");
+					tabs[ii].addClass("active");
+
+					if(opts.onChange){
+						opts.onChange(tabs[ii], activeTab);
+					}
+					activeTab = tabs[ii];
+					return activeTab;
+				}
+			}
+			var li = $('<li class="active" id="tab_' + id + '"></li>"');
+			li.append('<a href="#tab_panel_' + id +'" data-toggle="tab">' + title + '</a>');
+			var eClose = $('<span class="close-tab">×</span>');
+			li.append(eClose);
+			li.click(function(e){
+				if(!$(this).hasClass("active")){
+					if(opts.onChange){
+						opts.onChange($(this), activeTab);
+					}
+					activeTab = $(this);
+				}
+			});
+
+			tabs.push(li);
+			target.find(".nav-tabs").append(li);
+			var iframeId = "tab_iframe_" + id;
+			var panel = $('<div class="tab-pane active tab-iframe" id="tab_panel_' + id + '"></div>');
+			var iframe = $('<iframe id="' + iframeId + '" src="' + url
+			           + '" frameborder="0" height="800px" width="100%"></iframe>');
+			panel.append(iframe);
+			panels.push(panel);
+			tabContent.append(panel);
+
+			li.attr("iframe", iframeId);
+			activeTab = li;
+			eClose.click(function(e){
+				var tab = $(this).parent();
+
+				for(var i=0;i < tabs.length; i++){
+					if(tabs[i].attr("id")==tab.attr("id")){
+						if(tab.hasClass("active")){
+							panels[i].removeClass("active");
+							tabs[i].removeClass("active");
+							panels[i-1].addClass("active");
+							tabs[i-1].addClass("active");
+							if(opts.onChange){
+								opts.onChange(tabs[i-1], tabs[i]);
+							}
+							activeTab = tabs[i-1];
+						}
+						var t = tabs[i];
+						var p = panels[i];
+						panels.splice(i, 1);
+						tabs.splice(i, 1);
+						t.remove();
+						p.remove();
+						break;
+					}
+                }
+				return false;
+			});
+			return li;
+		}
+	};
+}();
+
+var currTab;
+function addTab(id, title, url){
+	if(title.length>5){
+		title = title.substring(0,5) + "...";
+	}
+	currTab = Tabs.add(id, title, url);
+}
+
+$(document).ready(function() {
+   Tabs.init($("#page-tab"),{"onChange":function(newTab, oldTab){
+	   currTab = newTab;
+	   var iframe = currTab.attr("iframe");
+   }});
+
+   $(".nav-item .nav-link").click(function(e) {
+	   	if($(this).hasClass("nav-toggle")) return;
+	   	var title = $(this).find(".title").text();
+       	addTab(title, title, $(this).attr("href"));
+
+       	var tt1 = $(".page-content").height()-60;
+       	var iframe = $(".tab-pane iframe:first-child");
+		if(navigator.userAgent.match(/(iPod|iPhone|iPad)/)) { //判断是苹果设备还是其他设备
+		 	iframe.attr("scrolling", "no"); //评估设置设置为no
+		 	iframe.css({
+		 		"height": "100%",
+		 		"min-height": tt1,
+		 		"min-width": "100%",
+		 		"*width": "100%",
+		 		"width": "1px",
+		 		"-webkit-overflow-scrolling": "touch;",
+		 		"overflow":"auto"
+		 	});
+		} else {
+		 	iframe.attr("scrolling", "yes") //安卓设备设置为yes
+		 	iframe.css({
+		 		"height": tt1,
+		 		"width": "100%"
+		 	});
+		}
+	   	return false;
+   });
+});
+},false);
+*/
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   var tNode = document.createElement('div');
+       tNode.setAttribute('class','t_modal');
+       tNode.setAttribute('id','t_question_modal');
+       tNode.style.display = 'none';
+       tNode.innerHTML =
+       '<div class="modal-dialog">\
+                    <div class="modal-content">\
+                        <div class="modal-header">\
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="gb()"></button>\
+                            <h4 class="modal-title">设置订单  </h4>\
+                        </div>\
+                        <div class="modal-body" style="height:600px;">\
+                            <div class="form-body">\
+                                <div class="form-group">\
+                                    <label class="col-md-3 control-label" for="form_control_2"><span class="required"> * </span>问题类型：</label>\
+                                    <div class="col-md-9">\
+                                        <div class="md-checkbox-list" id="checkbox2_00">\
+                                         </div>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                            <div class="form-actions">\
+                                <div class="row">\
+                                    <div class="col-md-offset-3 col-md-9">\
+                                        <button type="submit" id="ok_question_reason" class="btn green">确定</button>\
+                                        <button type="button" id="no_question_reason" class="btn default" onclick="gb()">取消</button>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>\
+                </div>\;'
+ /*
+ document.body.addEventListener("click",function alert(e){
+   var test0 = document.createElement('div');
+       test0.setAttribute('id','msg');
+       test0.innerHTML =
+                '<div id="msg_top">温馨提示<span class="msg_close">×</span></div>'
+               +'<div id="msg_cont">'+ e + '</div>'
+               +'<div class="msg_close" id="msg_clear">确定</div>'
+     document.body.append(test0);
+     document.getElementsByClassName("msg_close").addEventListener("click",function alert(e){
+        var db = document.getElementById("tt_searchButton");
+            db.remove();
+         },false);
+    },false);
+
+
+var tt = document.getElementById("tab_iframe_登記退換貨表").contentDocument.getElementsByClassName("page-container")[0];
+console.log(tt);
+var wxzSearchBarNode = document.createElement('div');
+        wxzSearchBarNode.setAttribute('class','header-wxzbar header-info');
+        wxzSearchBarNode.style = "position: absolute;top: 400px; left: 235px;";
+        wxzSearchBarNode.innerHTML ='&nbsp &nbsp <input class="search-query" placeholder=" 輸入--（編號）" id="wxz_input" > &nbsp &nbsp &nbsp';
+
+tt.appendChild(wxzSearchBarNode);
+*/ //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    targNode.appendChild(tNode);
+
+    document.getElementById("tt_searchButton").addEventListener("click", function fn() {
+       var ttx = document.getElementById('t_question_modal');
+           ttx.style.display = 'block';
+           ttx.show('slow');
+},false);
+
+})();
